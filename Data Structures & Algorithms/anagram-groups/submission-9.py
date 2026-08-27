@@ -1,0 +1,14 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        my_dict = defaultdict(list)
+        for i, s in enumerate(strs):
+            arr = [0]*26
+            for c in s:
+                arr[ord(c)-97] += 1
+            my_dict[tuple(arr)].append(s)
+        res = []
+        for key, value in my_dict.items():
+            res.append(value)
+        return res
+        
+            
